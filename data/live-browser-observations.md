@@ -1,0 +1,10 @@
+# Live browser observations (Claude, 2026-08-02, desktop viewport 1600×900 logical)
+
+## Homepage (ampy.se)
+1. **Hero (live) differs from older Hero-1 JSON:** the approved "Evify-replika" hero is live — dark house photo, H1 "Elinstallationer i hemmet, gjort ordentligt.", sub "Våra egna behöriga elektriker hjälper dig i hela Sverige, med allt från elfel och elcentraler till laddbox och batterilagring.", **single CTA** "Kostnadsfri rådgivning", anchored trust row bottom-right: "5,0 på Google ★★★★★ | Över 3 000 installationer per år". Good single-CTA discipline and anchored proof. Header CTA label is "Gratis rådgivning" while hero says "Kostnadsfri rådgivning" (label inconsistency on the same viewport).
+2. **VERIFIED BUG / P0-class UX failure — enterView fadeIn leaves content invisible:** after scrolling to y≈1000, the viewport was completely blank (#f5f9ff). DOM inspection: section `.brxe-cgamzx` (ProductGrid, h=958px, fully in viewport) had its inner container at **`opacity: 0`** — the Bricks `enterView` fadeIn interaction had not fired. A fast-scrolling or JS-delayed visitor sees empty screens where content should be. Nearly every section on the site carries these enterView fadeIn interactions → sitewide exposure. (Reproduced twice; screenshots captured blank viewport while DOM confirmed opacity:0.)
+3. **ProductGrid position 2 on homepage confirmed:** H2 "Våra hembatterier och laddboxar – installerat & klart med 50% Grön Teknik…" with battery products first ("BÄSTSÄLJARE … Dyness Stack100…") — inverts the commercial priority (service > laddbox > battery) directly under a service-intent hero.
+4. Cookie banner (necessary-only chosen) overlays the hero trust row on first load — the anchored "5,0 på Google" row is hidden behind the consent modal at the exact moment a first-time visitor evaluates the hero.
+
+## Method note
+Browser scroll interactions intermittently timed out (heavy JS main thread — consistent with the ~9–10s lab LCP flag in the paid investigation). Structural analysis of all 326 pages was done via fetched HTML (data/block-map.json); this file records only what was verified by live rendering.
