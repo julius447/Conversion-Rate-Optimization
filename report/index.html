@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ampy CRO-masterstrategi 2026 — Konverteringsmotorn</title>
+<style>
+  :root{
+    --teal:#00a991; --teal-deep:#018271; --mid:#090b32; --ink:#1a1d2e; --ink-soft:#565e82;
+    --off:#f5f9ff; --white:#fff; --mint:#55ff9a; --line:#dde5f4; --gold:#f6b53d;
+    --p0:#d92638; --p1:#e8890c; --p2:#2a6fdb; --p3:#7a86a8;
+    --radius:16px; --shadow:0 10px 30px -18px rgba(9,11,50,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:var(--off);line-height:1.6;font-size:16px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{color:var(--mid);line-height:1.2;font-weight:600}
+  h2{font-size:clamp(26px,3vw,34px);margin:0 0 6px}
+  h3{font-size:20px;margin:0 0 8px}
+  p{margin:0 0 12px}
+  a{color:var(--teal-deep)}
+  section{padding:56px 0}
+  .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+  .lead{font-size:18px;color:var(--ink-soft);max-width:820px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:18px;height:56px;overflow-x:auto;white-space:nowrap}
+  nav b{color:var(--mid);font-size:15px}
+  nav a{font-size:13.5px;color:var(--ink-soft);text-decoration:none;font-weight:500}
+  nav a:hover{color:var(--teal-deep)}
+  /* hero */
+  header.hero{background:linear-gradient(140deg,#090b32 0%,#101445 55%,#0d2f4e 100%);color:#fff;padding:72px 0 56px;position:relative;overflow:hidden}
+  header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(85,255,154,.16),transparent 65%)}
+  header.hero h1{color:#fff;font-size:clamp(30px,4.5vw,48px);font-weight:600;max-width:840px}
+  header.hero .grad{background:linear-gradient(90deg,#55ff9a,#5eb1bf);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  header.hero p{color:rgba(255,255,255,.78);max-width:760px;font-size:17px;margin-top:14px}
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 18px}
+  .stat b{display:block;font-size:24px;color:var(--mint);font-weight:600}
+  .stat span{font-size:12.5px;color:rgba(255,255,255,.7)}
+  /* cards */
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  /* pills */
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 10px;border-radius:999px;color:#fff;vertical-align:middle}
+  .P0{background:var(--p0)} .P1{background:var(--p1)} .P2{background:var(--p2)} .P3{background:var(--p3)}
+  .gap{background:#fff3d6;color:#7a5200;border:1px solid #f0d9a0}
+  /* diagnoses */
+  .diag{border-left:3px solid var(--line);box-shadow:var(--shadow),inset 3px 0 0 var(--teal);padding:18px 20px;background:var(--white);border-radius:0 var(--radius) var(--radius) 0;box-shadow:var(--shadow)}
+  .diag b{color:var(--mid)}
+  .diag .n{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--mid);color:var(--mint);align-items:center;justify-content:center;font-weight:700;margin-right:10px;font-size:14px}
+  /* tables */
+  table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:14.5px}
+  th{background:#fafcff;text-align:left;padding:12px 14px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#141a47;border-bottom:1px solid #d7e0ef}
+  td{padding:11px 14px;border-bottom:1px solid #edf2fa;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  .tscroll{overflow-x:auto;border-radius:var(--radius)}
+  /* wireframes */
+  .wf-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:26px}
+  .wf-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px}
+  .wf-head .pages{font-size:13px;color:var(--ink-soft);font-weight:500}
+  .wf-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:16px}
+  @media(max-width:760px){.wf-cols{grid-template-columns:1fr}}
+  .wf-col h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;font-weight:700}
+  .wf-col.after h4{color:var(--teal-deep)}
+  .stack{display:flex;flex-direction:column;gap:5px}
+  .blk{border-radius:8px;padding:7px 12px;font-size:13px;font-weight:500;border:1px solid var(--line);background:#fafcff;color:var(--ink);display:flex;justify-content:space-between;gap:8px;align-items:center}
+  .blk small{font-size:10.5px;color:var(--ink-soft);font-weight:600;letter-spacing:.05em;white-space:nowrap}
+  .b-hero{background:#eef3ff;border-color:#c9d8f5}
+  .b-form{background:#e2fbf2;border-color:#9fe9cf;font-weight:600}
+  .b-cta{background:#fff0e0;border-color:#f5d3a6}
+  .b-proof{background:#f2ecff;border-color:#d8c9f5}
+  .b-seo{background:#f7f8fa;border-color:#e3e7ee;color:#565e82}
+  .b-new{background:linear-gradient(90deg,#e2fbf2,#eafff3);border:1.5px dashed var(--teal);font-weight:600}
+  .b-kill{background:#fdeaea;border-color:#f3bcbc;color:#8f2430;text-decoration:line-through;opacity:.8}
+  .b-move{box-shadow:inset 3px 0 0 var(--gold)}
+  .why{margin-top:14px;background:#fafcff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:13.5px;color:var(--ink-soft)}
+  .why b{color:var(--mid)}
+  .findings{margin:10px 0 0;padding-left:0;list-style:none;font-size:14px}
+  .findings li{padding-left:22px;position:relative;margin-bottom:6px}
+  .findings li::before{content:"→";position:absolute;left:0;color:var(--teal);font-weight:700}
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px;font-size:12px}
+  .legend .blk{padding:4px 10px}
+  /* roadmap */
+  .phase{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border-bottom:0}
+  .phase .when{font-weight:700;color:var(--mid)}
+  .phase .when small{display:block;font-weight:500;color:var(--teal-deep);font-size:12px}
+  @media(max-width:640px){.phase{grid-template-columns:1fr;gap:4px}}
+  ul.tight{padding-left:20px;font-size:14.5px}
+  ul.tight li{margin-bottom:5px}
+  .foot{background:var(--mid);color:rgba(255,255,255,.75);padding:34px 0;font-size:13.5px}
+  .foot a{color:var(--mint)}
+  .note{font-size:12.5px;color:var(--ink-soft)}
+  .chain{background:#0d1030;color:#dfe7ff;border-radius:var(--radius);padding:20px 24px;font-size:15px}
+  .chain b{color:var(--mint)}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <b>Ampy · CRO 2026</b>
+  <a href="#exec">Diagnos</a><a href="#evidens">Evidens</a><a href="#sprint0">Sprint 0</a><a href="#spine">Ryggraden</a><a href="#mallar">Mallarna</a><a href="#block">Blocken</a><a href="#nya">Nya block</a><a href="#magneter">Magneter</a><a href="#trust">Trust-kanon</a><a href="#matning">Mätning</a><a href="#roadmap">Roadmap</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <span class="eyebrow" style="color:var(--mint)">CRO-masterstrategi · 2026-08-02</span>
+  <h1>Från landningssidor till <span class="grad">konverteringsmotor</span></h1>
+  <p>Fullständig audit av ampy.se: varje sida, varje block, mobil och desktop — ur kundens perspektiv. Detta dokument är beslutsunderlaget för de kommande 3–6 månadernas CRO-arbete. All underliggande research ligger i repot <code>julius447/Conversion-Rate-Optimization</code>.</p>
+  <div class="stats">
+    <div class="stat"><b>326</b><span>URL:er crawlade &amp; blockkartlagda</span></div>
+    <div class="stat"><b>41</b><span>specialistanalyser (14 mallar + 20 block + 7 tvärlinser)</span></div>
+    <div class="stat"><b>100 %</b><span>template-konsekvens — varje fix skalar</span></div>
+    <div class="stat"><b>13→5</b><span>asks per sida efter konsolidering</span></div>
+    <div class="stat"><b>17</b><span>[GAP]-frågor som kräver ägarbeslut</span></div>
+  </div>
+</div></header>
+
+<!-- ============ EXEC ============ -->
+<section id="exec"><div class="wrap">
+  <span class="eyebrow">Executive summary</span>
+  <h2>Fem systemdiagnoser</h2>
+  <p class="lead">Sajtens problem är inte brist på innehåll, design eller CTA:er — den har för många av fel sak, i fel ordning, med motstridiga siffror, och mätinstrumentet är trasigt. Läckan från betalutredningen förklaras bättre av mekanik än av copy.</p>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-top:22px">
+    <div class="diag"><span class="n">1</span><b>Konverteringen är mekaniskt undertryckt.</b> Hero-formuläret finns inte i server-HTML (tom <code>#ampy-form-root</code>, JS-injiceras sist på en ~9–10 s-LCP-sida). Live-verifierat: hela sektioner ligger på <code>opacity:&nbsp;0</code> tills enterView-animationen triggar — snabbscrollare möter blanka skärmar. Inget formulär skickar <code>form_start</code> → GA4:s "0 form starts" är <em>oobserverbart</em>, inte diagnostiserat.</div>
+    <div class="diag"><span class="n">2</span><b>~900 CTA-instanser konvergerar på en trasig sida.</b> Nästan varje "Kostnadsfri rådgivning"-knapp navigerar till <code>/kontakt/</code> — utan H1, utan synligt telefonnummer, 386 ord — i stället för att ankra till formuläret på sidan besökaren redan står på. Headern saknar telefonlänk på alla brytpunkter, trots att telefonklick är de enda registrerade betalkonverteringarna.</div>
+    <div class="diag"><span class="n">3</span><b>Trust-systemet motsäger sig självt.</b> Tre volymsiffror samtidigt ("1000+ Nöjda kunder" <span class="pill P0">BANNAD</span>, "Över tusen installationer", "3 000+ per år"). "5.0" utan antal 4–6×/sida — medan JSON-LD bär <code>reviewCount:&nbsp;25</code>. Tre svarslöften på samma sida (60 sek / 24 h / "inom kort"). Starkaste beviset — Elsäkerhetsverkets registerslagning förifylld med Ampys post — är en 49 px anonym logga tre block från footern.</div>
+    <div class="diag"><span class="n">4</span><b>Message match brister på pris — den #1 svenska husägar-oron.</b> SERP-titlar lovar "fast pris"; frasen förekommer 0 gånger i brödtext. Prissvaren finns ("6 000–12 000 kr efter ROT") men ligger i FAQ-block 8. Produktsidor: hero säger "Totalt 5 890:-", sidans FAQ säger 7 000–10 000 kr.</div>
+    <div class="diag"><span class="n">5</span><b>Ordningen är inverterad mot beslutspsykologin.</b> Proof efter ask (Certificates medianslot 18, Team 14, FAQ <em>efter</em> formuläret på 131 sidor), ROT/Grön teknik efter formuläret — och eljour, det mest brådskande intentet, möts av samma lugna installationsmall med 7-fältsformulär först.</div>
+  </div>
+  <div class="card" style="margin-top:20px;border:1px solid #bfeeD5;background:#f4fff9">
+    <b>Det som redan är rätt:</b> 100 % template-konsekvens (en fix → 56+ sidor) · MainContact är ett genuint starkt formulär · godkända homepage-heron har rätt en-CTA-disciplin · artikelmallens E-E-A-T-maskineri är utmärkt · <code>.aof</code>-formulärets per-sida-resolver är tekniskt förstklassig · myndighetsbeviset finns redan — det behöver bara flyttas.
+  </div>
+</div></section>
+
+<!-- ============ EVIDENS ============ -->
+<section id="evidens" style="background:var(--white)"><div class="wrap">
+  <span class="eyebrow">Metod &amp; evidens</span>
+  <h2>Vad analysen vilar på</h2>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><h3>Strukturdata</h3><p style="font-size:14.5px">Samtliga 326 sitemap-URL:er crawlade; blockordningen per sida extraherad ur body-markup (<code>data/block-map.json</code>). Varje mall visade sig 100 % konsekvent → rekommendationer per mall gäller alla dess sidor.</p></div>
+    <div class="card"><h3>Beteendedata</h3><p style="font-size:14.5px">Betalutredningen (33 klick, 0 formulärleads, Clarity-inspelningar inkl. trust-detouren till Om oss) + GSC: <b>73 % av organiska klick är varumärkessökningar</b> → startsidan/om-oss är verifieringssteg i en redan varm funnel. Mobil = 53 % av klicken.</p></div>
+    <div class="card"><h3>Live-verifiering</h3><p style="font-size:14.5px">Rendering i browser (desktop): opacity:0-buggen reproducerad två gånger; hero-CTA-href:ar, döda länkar, platshållartexter och prissiffror verifierade mot live-HTML. Ramverk: MECLABS, Baymard, NN/g, Cialdini, JTBD, Unbounce, Google message match.</p></div>
+  </div>
+  <p class="note" style="margin-top:14px">Ärlighetsregel i hela programmet: påståenden utan verifierbar grund är märkta HYPOTES och formulerade som testbara A/B-satser. Inga påhittade procentsatser förekommer.</p>
+</div></section>
+
+<!-- ============ SPRINT 0 ============ -->
+<section id="sprint0"><div class="wrap">
+  <span class="eyebrow">Vecka 1–2</span>
+  <h2>Sprint 0: Mät + sanera <span class="pill P0">P0</span></h2>
+  <p class="lead">Ingenting här A/B-testas — det är trasigt, osant eller omätbart. Allt är småjobb med enorm blast-radius tack vare template-konsekvensen.</p>
+  <div class="tscroll" style="margin-top:18px"><table>
+    <tr><th style="width:44px">#</th><th>Åtgärd</th><th style="width:210px">Omfattning</th></tr>
+    <tr><td>0.1</td><td><b>Instrumentering:</b> <code>form_view/start/error/submit</code> + <code>tel_click</code> + blockexponering för alla sex formulärsystem; Clarity-taggning</td><td>Sitewide — låser upp all diagnostik</td></tr>
+    <tr><td>0.2</td><td><b>Pixel-integritet:</b> /thank-you/ noindex + konvertering på submit-event (idag: index,follow + pixel på pageview → varje direktbesök myntar en fejkkonvertering)</td><td>Programmets beroende variabel</td></tr>
+    <tr><td>0.3</td><td><b>enterView-buggen:</b> ta bort hidden-on-load/opacity-gates från innehålls- och konverteringsblock (verifierad live)</td><td>Sitewide</td></tr>
+    <tr><td>0.4</td><td><b>Stavfelet "Kostnadsfri radgivning"</b> (saknat å) i det delade CTA-biblioteket</td><td>~290 sidor, en edit</td></tr>
+    <tr><td>0.5</td><td><b>Dött nummer 010-123 45 67</b> i kalkylatorernas felmeddelande (rätt: 010-265 79 79)</td><td>Batterisidor + hubbar</td></tr>
+    <tr><td>0.6</td><td><b>Publicerade platshållare:</b> literal "[ort]" i /eljour/-MainCTA; "(ADD FAQ SECTION)" som H2 i två footerlänkade artiklar</td><td>3 sidor</td></tr>
+    <tr><td>0.7</td><td><b>/elservice/ routing-grid är död:</b> 22 "Till {tjänst}"-kort är <code>&lt;span&gt;</code> utan länk — hubben kan inte routa</td><td>Hubb #1 + 22 länkmål</td></tr>
+    <tr><td>0.8</td><td><b>Staging-404:</b> pelar-heron förladdar <code>staging.ampy.se/hero-bg-1.webp</code> (404) i LCP-fönstret</td><td>5 pelarsidor</td></tr>
+    <tr><td>0.9</td><td><b>Telefon i headern</b> på alla brytpunkter, utanför hamburgaren — högsta prioritetspoängen i hela auditen (2925)</td><td>325 sidor</td></tr>
+    <tr><td>0.10</td><td><b>"Ordinarie pris"-genomstrykningen</b> (exakt 2× netto = rea-inramning av ett villkorat skatteavdrag) → "Pris före Grön Teknik-avdrag"</td><td>26 produktsidor</td></tr>
+    <tr><td>0.11</td><td><b>Eljour-felen:</b> "Se alla områden … i listan nedan" (visar 20 av 56) + hemförsäkringsblockets knapp "Läs mer om ROT-avdrag"</td><td>56–57 sidor</td></tr>
+    <tr><td>0.12</td><td><b>Ägarsession — sifferkanon:</b> de 17 [GAP]-besluten (se Trust-kanon nedan)</td><td>Låser upp trust-systemet</td></tr>
+    <tr><td>0.13</td><td><b>Lead-rör-test:</b> provskicka alla 5 magnetformulär, verifiera n8n-webhooks (stubbar droppar leads idag)</td><td>7 magneter</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============ SPINE ============ -->
+<section id="spine" style="background:var(--white)"><div class="wrap">
+  <span class="eyebrow">Arkitekturen</span>
+  <h2>Den kanoniska sidryggraden</h2>
+  <p class="lead">En ordningslogik för hela sajten, per intent-temperatur. Detaljer och alla överprövningar: <code>research/synthesis/funnel-architecture.md</code>.</p>
+  <div class="grid2" style="margin-top:20px">
+    <div class="card">
+      <h3>CTA-kanon</h3>
+      <ul class="tight">
+        <li><b>"Kostnadsfri rådgivning"</b> = knappen · <b>"Boka rådgivning"</b> = submit · <b>"Ring 010-265 79 79"</b> = telefon (numret alltid synligt)</li>
+        <li><i>Gratis rådgivning, offert, förslag, konsultation</i> pensioneras som knappetiketter</li>
+        <li><b>Ankar-regeln:</b> body-CTA:er scrollar till sidans formulär (<code>#main-contact</code>); endast chrome + formulärlösa sidor navigerar till /kontakt/</li>
+        <li><b>Ask-budget:</b> max 5 body-asks (idag 13–17), var och en med eget jobb</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Telefon vs formulär per intent</h3>
+      <ul class="tight">
+        <li><b>URGENT</b> (eljour, felsökning): ring-först, sticky mobil call-bar, inget hero-formulär</li>
+        <li><b>HIGH</b> (service/geo/produkt): SSR-kortformulär (namn + telefon + postnr) i hero, telefon sekundär</li>
+        <li><b>MID</b> (varumärkesverifiering: homepage/om-oss): proof-först, ankrat formulär-close</li>
+        <li><b>LOW</b> (artiklar/magneter): värde → "Nästa steg"-kort</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Spinen som alla mallar följer</h3>
+    <p style="font-size:15px">Hero → <b>TrustStrip</b> (Elsäkerhetsverket-verifiering + "5,0 av 5 · N omdömen" + EN volymsiffra) → Testimonials (vertikal-pinnade, <em>före</em> första telefon-asket) → router/<b>pris</b> → SEO-innehåll → incitament (ROT/GT) <em>före</em> formuläret → VarProcess → <b>FAQ alltid före MainContact</b> → Map → sammanslagen SEO-svans → Certificates → terminal.</p>
+    <p style="font-size:14px;color:var(--ink-soft);margin-top:6px"><b>Dödas/slås ihop:</b> MikroCTA pensioneras (173 sidor) · BlueCTA + MainCTA → ETT PhoneBand · FooterSEO viks in i prefootern (per-sida-unika texten <em>behålls</em> — SEO-vaktens veto mot boilerplate) · produkt-popupen → inline 3-fältsformulär · homepage-ProductGrid → ServiceRouter + 2-korts ProductTeaser.</p>
+  </div>
+</div></section>
+
+<!-- ============ MALLAR / WIREFRAMES ============ -->
+<section id="mallar"><div class="wrap">
+  <span class="eyebrow">Sida för sida</span>
+  <h2>Ultimata strukturen per sidtyp</h2>
+  <p class="lead">Före-kolumnen är den <em>verifierade</em> blockordningen från crawlen av alla 326 sidor. Efter-kolumnen är den eniga rekommendationen efter adversariell sammanjämkning av alla analyser. Header/footer är underförstådda.</p>
+  <div class="legend">
+    <span class="blk b-hero">Hero</span><span class="blk b-form">Formulär/ask</span><span class="blk b-cta">CTA-band</span><span class="blk b-proof">Proof/trust</span><span class="blk b-seo">SEO/innehåll</span><span class="blk b-new">NYTT block</span><span class="blk b-kill">Dödas</span><span class="blk b-move" style="background:#fafcff">▍= flyttas</span>
+  </div>
+
+  <!-- HOMEPAGE -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Startsidan</h3><span class="pages">1 sida · 89 % av organiska klick · varumärkes-verifierarnas landningsplats</span><span class="pill P0">P0</span></div>
+    <ul class="findings">
+      <li>Kommersiell prioritet inverterad: 4 batterier à 33–36 tkr är första kommersiella innehållet (första prisankaret = 10× ett servicejobb) — tjänsterna låg på position 8. Ägarens misstanke <b>bekräftad</b>.</li>
+      <li>Hero-CTA:n navigerar till /kontakt/ (verifierad href) i stället för att ankra till sidans eget MainContact-formulär.</li>
+      <li>Ägarens skisserade fix justerad: ServiceGrid-routern ska inte raderas — den slås ihop med MiniMenu och flyttas UPP; produkterna behålls som slimmad 2-korts-teaser (laddbox först).</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero-1 + MiniMenu <small>CTA→/kontakt</small></div>
+        <div class="blk b-kill">ProductGrid <small>batteri först</small></div>
+        <div class="blk b-kill">BlueCTA <small>ask före proof</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-cta">MainCTA</div>
+        <div class="blk b-seo">VarProcess <small>typos</small></div>
+        <div class="blk b-form">MainContact <small>8 fält</small></div>
+        <div class="blk b-seo">MapBlock</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero-1 <small>CTA→#main-contact · ankrat betyg</small></div>
+        <div class="blk b-new">ServiceRouter <small>tjänster rad 1</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-seo">VarProcess <small>copy fixad</small></div>
+        <div class="blk b-new">PhoneBand <small>ETT telefonband</small></div>
+        <div class="blk b-new">ProductTeaser <small>2 kort, laddbox→batteri</small></div>
+        <div class="blk b-proof b-move">Certificates <small>NY här</small></div>
+        <div class="blk b-form">MainContact <small>3 synliga fält</small></div>
+        <div class="blk b-seo">MapBlock</div>
+        <div class="blk b-seo">Nyheter</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> 73 % av organiska klick är brand-sökningar — besökaren verifierar Ampy. Sidans jobb är proof + routing, inte produktförsäljning. Service &gt; laddbox &gt; batteri återspeglas nu i ordningen. (MECLABS: ångest↓ före ask; Cialdini authority via Certificates.)</div>
+  </div>
+
+  <!-- SERVICE -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Tjänstesidor — /elservice/*</h3><span class="pages">22 sidor · primära Google Ads-destinationer</span><span class="pill P0">P0</span></div>
+    <ul class="findings">
+      <li>Hero-formuläret finns inte i server-HTML → osynligt för snabbstudsande betaltrafik (förklarar 1-sekundersstudsen på Vitvaror).</li>
+      <li>"byta elcentral pris"-svaret (6 000–12 000 kr efter ROT) ligger i FAQ-block 8; Vitvaror saknar prissvar helt.</li>
+      <li>Intern motsägelse: ROT-blocket lovar 30 % på felsökningssidan vars egen FAQ säger att ROT inte gäller felsökning.</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + aof-form <small>JS-only · trippel-ask</small></div>
+        <div class="blk b-proof">Testimonials <small>slumpade</small></div>
+        <div class="blk b-seo">ContentBlock</div>
+        <div class="blk b-seo">VarProcess</div>
+        <div class="blk b-cta">MainCTA</div>
+        <div class="blk b-seo">FAQ <small>prissvaret här</small></div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">MapBlock</div>
+        <div class="blk b-seo">ROT <small>även där ROT ej gäller</small></div>
+        <div class="blk b-seo">VissteDuAtt</div>
+        <div class="blk b-seo">CEBlock</div>
+        <div class="blk b-proof">Certificates <small>slot 16</small></div>
+        <div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 v2 <small>H1=rubriken · SSR-form · ankrat betyg</small></div>
+        <div class="blk b-new">Prisblock <small>spann efter ROT — från FAQ-copyn</small></div>
+        <div class="blk b-new">TrustStrip <small>ESV-verifiering + betyg</small></div>
+        <div class="blk b-proof b-move">Testimonials <small>vertikal-pinnade</small></div>
+        <div class="blk b-new">PhoneBand</div>
+        <div class="blk b-seo">ContentBlock <small>punktlistor + jobbfoton</small></div>
+        <div class="blk b-seo b-move">ROT <em>eller</em> Hemförsäkring <small>eligibility-gated</small></div>
+        <div class="blk b-seo">VarProcess</div>
+        <div class="blk b-seo b-move">FAQ <small>6–7 frågor, före formuläret</small></div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">Map + relaterade tjänster</div>
+        <div class="blk b-seo">SEO-svans <small>VDA+CE sammanslagna</small></div>
+        <div class="blk b-proof">Certificates</div>
+        <div class="blk b-new">Terminal <small>ersätter FooterSEO-CTA</small></div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> Message match ad→H1→skärm 1 kräver prissvar direkt (Google + Byggahus-oron). Divergent alternativ (husregeln, dokumenterat i filen): ring-först-stege med sticky mobil-bar för urgenta tjänster (felsökning, jordfelsbrytare) med formulär endast vid MainContact.</div>
+  </div>
+
+  <!-- GEO ELEKTRIKER -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Geo: Elektriker i {ort}</h3><span class="pages">56 sidor · samma logik för elinstallation-i (56)</span><span class="pill P0">P0</span></div>
+    <ul class="findings">
+      <li>6 av 8 icke-telefon-CTA:er exporterar besökaren till /kontakt/ trots två formulär på sidan (~800 KB extra sidladdning).</li>
+      <li>SERP-titeln lovar "fast pris" — frasen förekommer 0 gånger i brödtext; inget prisinnehåll alls.</li>
+      <li>"1000+ Nöjda kunder" (bannad claim) motsäger "3 000+ installationer om året" på samma sida.</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + aof-form</div>
+        <div class="blk b-proof">Metrics <small>"1000+ Nöjda kunder"</small></div>
+        <div class="blk b-cta">MainCTA</div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-seo">VarProcess</div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">FAQ <small>efter formuläret!</small></div>
+        <div class="blk b-seo">ROT</div>
+        <div class="blk b-kill">MikroCTA</div>
+        <div class="blk b-proof">TeamSection</div>
+        <div class="blk b-seo">MapBlock <small>20 slumpade orter</small></div>
+        <div class="blk b-seo">ContentBlock <small>slot 15</small></div>
+        <div class="blk b-kill">BlueCTA</div>
+        <div class="blk b-seo">VissteDuAtt + CEBlock</div>
+        <div class="blk b-proof">Certificates</div>
+        <div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 <small>SSR · "fast pris i offerten"-H1</small></div>
+        <div class="blk b-new">TrustStrip</div>
+        <div class="blk b-proof">Metrics <small>kanoniska siffror</small></div>
+        <div class="blk b-proof b-move">Testimonials <small>ort-taggade först</small></div>
+        <div class="blk b-new">PhoneBand</div>
+        <div class="blk b-seo">ServicesGrid</div>
+        <div class="blk b-seo b-move">ContentBlock <small>15→7</small></div>
+        <div class="blk b-seo b-move">ROT <small>före formuläret + kr-exempel</small></div>
+        <div class="blk b-seo">VarProcess</div>
+        <div class="blk b-proof b-move">TeamSection <small>före formuläret</small></div>
+        <div class="blk b-seo b-move">FAQ <small>ESV-frågan först</small></div>
+        <div class="blk b-form">MainContact <small>#anchor — alla CTA:er hit</small></div>
+        <div class="blk b-seo">MapBlock <small>deterministisk + hubblänk</small></div>
+        <div class="blk b-seo">SEO-svans → Certificates → Terminal</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> Lokalt intent = högt intent; sidan måste visa mänskligt bevis före första hårda telefon-asket (överprövning dokumenterad) och besvara priset den lovade i SERP:en. MikroCTA+BlueCTA bort = från 13 till ~5 asks.</div>
+  </div>
+
+  <!-- ELJOUR -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Geo: Eljour i {ort}</h3><span class="pages">56 sidor + pelaren · URGENT intent — egen arkitektur</span><span class="pill P0">P0</span></div>
+    <ul class="findings">
+      <li>Akutbesökaren kl 22:30 möts av 7-fälts offertformulär först; telefonen är sekundär. Unbounce: repair/urgent konverterar bäst — på samtalet.</li>
+      <li>Symptomblocket (utmärkt!) shippades utan sin sticky ringpanel — verifierat: noll <code>sticky/fixed</code> i den shippade CSS:en.</li>
+      <li>"Prata med en jourelektriker inom 60 sekunder!" och "Vi ringer dig inom 24 timmar" på samma sida.</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + aof-form <small>formulär först!</small></div>
+        <div class="blk b-proof">Metrics <small>installationstrivia</small></div>
+        <div class="blk b-cta">MainCTA <small>"60 sekunder"</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-seo">VarProcess <small>"Installation utförd"</small></div>
+        <div class="blk b-kill">BlueCTA</div>
+        <div class="blk b-seo">VissteDuAtt</div>
+        <div class="blk b-seo">FAQ</div>
+        <div class="blk b-form">MainContact <small>"24 timmar"</small></div>
+        <div class="blk b-seo">Hemförsäkring <small>knapp: "Läs mer om ROT"!</small></div>
+        <div class="blk b-kill">MikroCTA</div>
+        <div class="blk b-seo">ContentBlock · MapBlock · CEBlock</div>
+        <div class="blk b-proof">Certificates</div>
+        <div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2-Eljour <small>telefon-i-H1 · INGET formulär</small></div>
+        <div class="blk b-new">Symptomblock <small>+ sticky panel + fast mobil ring-bar</small></div>
+        <div class="blk b-new">JourProof-strip <small>1h-målsättning · ankrat betyg · ESV</small></div>
+        <div class="blk b-seo">VarProcess-Jour <small>ring-först-steg</small></div>
+        <div class="blk b-new">Pris &amp; hemförsäkring <small>inställelseavgift [GAP]</small></div>
+        <div class="blk b-seo">FAQ</div>
+        <div class="blk b-proof">Testimonials <small>akut-sorterade</small></div>
+        <div class="blk b-new">Two-lane contact <small>"Akut? Ring" / "Kan vänta? namn+tel"</small></div>
+        <div class="blk b-seo">SEO-svans <small>allt innehåll bevarat</small></div>
+        <div class="blk b-proof">Certificates</div>
+        <div class="blk b-seo">MapBlock ↓ · Terminal</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> Ett tryggt beslut under stress kräver: symptom → allvarsgrad → ETT nummer. ETT sant SLA-löfte per fil (ring: direkt; formulär: 24 h). MainCTA/BlueCTA/MikroCTA bort — 22 tel-länkar blir en dominant väg.</div>
+  </div>
+
+  <!-- LADDBOX GEO -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Geo: Laddbox i {ort}</h3><span class="pages">56 sidor · produkt+installation-intent</span><span class="pill P1">P1</span></div>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + aof-form</div>
+        <div class="blk b-seo">ProductGrid <small>"Läs mer" exporterar till popup-sidor</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-cta">MainCTA · MikroCTA · BlueCTA <small>3 band</small></div>
+        <div class="blk b-seo">ContentBlock · FAQ</div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">Map · GrönTeknik <small>slot 16!</small> · CE</div>
+        <div class="blk b-proof">Certificates</div><div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 <small>"fr. X kr efter 50 %"-H1 · SSR</small></div>
+        <div class="blk b-new">TrustStrip</div>
+        <div class="blk b-proof b-move">Testimonials ↑</div>
+        <div class="blk b-seo">ProductGrid <small>3 kort · dubbel-CTA → sidans formulär</small></div>
+        <div class="blk b-seo b-move">GrönTeknik <small>16→5 + kr-exempel</small></div>
+        <div class="blk b-new">PhoneBand</div>
+        <div class="blk b-new">VarProcess-laddbox</div>
+        <div class="blk b-seo">ContentBlock · FAQ</div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">Map · SEO-svans · Certificates · Terminal</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> Prisankarna i gridden besvarar intentet — men kortens enda CTA fick inte exportera besökaren före trust. 50 %-incitamentet är säljargumentet och låg på slot 16.</div>
+  </div>
+
+  <!-- B2B -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Elektriker för X (B2B/BRF/kommun)</h3><span class="pages">13 sidor · /bostadsrattsforening/ har 546 GSC-visningar</span><span class="pill P1">P1</span></div>
+    <ul class="findings">
+      <li>Konsumentbevis på B2B-sidor: "Vad säger dina grannar om Ampy?" med villaomdömen direkt efter heron; footern säger "elfirma för privatpersoner".</li>
+      <li>Noll org-bevis före logo-väggen på position 12 — inga referenser/ramavtal/försäkring/ID06 där upphandlare letar.</li>
+      <li>Verifierat bra: <code>.aof</code>-resolvern förifyller kundtyp korrekt per sida (BRF/företag, "Föreningens namn", "Storkök / fläkt / trefas").</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + EFX-form</div>
+        <div class="blk b-proof">Testimonials <small>"grannar"</small></div>
+        <div class="blk b-cta">MainCTA</div>
+        <div class="blk b-seo">ContentBlock · VarProcess</div>
+        <div class="blk b-form">MainContact <small>utan org-fält</small></div>
+        <div class="blk b-seo">FAQ · VissteDuAtt · Map · CE</div>
+        <div class="blk b-proof">Certificates</div><div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Hero_2 + EFX-form <small>SSR</small></div>
+        <div class="blk b-new">OrgTrustStrip <small>ID06 · Trygg Hansa · ESV</small></div>
+        <div class="blk b-seo b-move">ContentBlock ↑ <small>vertikalens värde</small></div>
+        <div class="blk b-seo">VarProcess-B2B <small>offert→avtal→utförande→dokumentation</small></div>
+        <div class="blk b-new">Referenser <small>[GAP: B2B-omdömen]</small></div>
+        <div class="blk b-seo b-move">FAQ ↑ <small>LOU/styrelseansvar</small></div>
+        <div class="blk b-new">Serviceavtal-CTA <small>MikroCTA-skalet återanvänt</small></div>
+        <div class="blk b-form">MainContact-org <small>org-fält</small></div>
+        <div class="blk b-seo">SEO-svans · Map ↓ · Certificates · Terminal</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> En fastighetschef/styrelse screenar på org-bevis, inte grannars villaomdömen. Formulärkedjan måste bära org-fälten hela vägen.</div>
+  </div>
+
+  <!-- PRODUKT -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Produktsidor (laddbox + batteri)</h3><span class="pages">26 sidor</span><span class="pill P1">P1</span></div>
+    <ul class="findings">
+      <li>Prisintegritet bruten: hero "Totalt 5 890:-" vs sidans FAQ "7 000–10 000 kr efter Grön Teknik"; genomstruket "Ordinarie pris" är exakt 2× netto.</li>
+      <li>Enda primära CTA:n öppnar en scroll-låsande popup med 5 obligatoriska fält inkl. full adress — före värde.</li>
+      <li>Batterisidornas kalkylator-felmeddelande visar platshållarnumret 010-123 45 67.</li>
+    </ul>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">ProductHero <small>popup-CTA · fejk-rea-strike</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-seo">GrönTeknik · ContentBlock · FAQ</div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-seo">ProductGrid <small>"Ladda fler"</small> · Team · VDA · CE</div>
+        <div class="blk b-proof">Certificates</div><div class="blk b-cta">FooterSEO</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">ProductHero v2 <small>inline 3-fältsform · "Pris före/efter Grön Teknik" · namngiven expert · ankrat betyg</small></div>
+        <div class="blk b-new">Vad ingår i priset? <small>popup-innehållet upp på sidan</small></div>
+        <div class="blk b-seo">Kalkylator <small>batteri behåll / ev: laddboxkalkylatorn · felnummer fixat</small></div>
+        <div class="blk b-proof">Testimonials</div>
+        <div class="blk b-seo">GrönTeknik · ContentBlock · VDA ↑ · FAQ <small>pris synkad</small></div>
+        <div class="blk b-form">MainContact</div>
+        <div class="blk b-proof">TeamSection <small>kategori-matchade bios</small></div>
+        <div class="blk b-seo">"Liknande" <small>max 4</small> · CE · Certificates · Terminal</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> Ampy säljer installation + rådgivning, inte e-handel. Ärligt pris + vad-ingår + inline-ask slår popup-avbrottet (NN/g) och fejk-rea-inramningen (candour).</div>
+  </div>
+
+  <!-- ARTIKLAR -->
+  <div class="wf-card">
+    <div class="wf-head"><h3>Artiklar</h3><span class="pages">11 poster · SEO-motorn</span><span class="pill P1">P1</span></div>
+    <div class="wf-cols">
+      <div class="wf-col"><h4>Före (live)</h4><div class="stack">
+        <div class="blk b-hero">Byline + hero <small>E-E-A-T: utmärkt</small></div>
+        <div class="blk b-seo">Snabbt svar + brödtext + TOC <small>0 tel-länkar · 0 CTA</small></div>
+        <div class="blk b-seo">FAQ</div>
+        <div class="blk b-kill">Recensions-böne-kort <small>ber prospektet om Google-omdöme</small></div>
+        <div class="blk b-seo">Populära artiklar</div>
+      </div></div>
+      <div class="wf-col after"><h4>Efter (rekommenderad)</h4><div class="stack">
+        <div class="blk b-hero">Byline + hero <small>retrofit på 2 nakna poster</small></div>
+        <div class="blk b-seo">Snabbt svar + brödtext del 1 + TOC</div>
+        <div class="blk b-new">Inline-CTA <small>~30 % djup: foto-bedömning / kalkylator</small></div>
+        <div class="blk b-seo">Brödtext del 2 <small>tel: på varje "ring eljour"</small></div>
+        <div class="blk b-new">"Nästa steg"-kort <small>rådgivning + Ring + kalkylator</small></div>
+        <div class="blk b-seo">FAQ</div>
+        <div class="blk b-form">MainContact <small>test</small></div>
+        <div class="blk b-seo">Recensionskort ↓ <small>kundriktat</small> · Dela · Populära</div>
+      </div></div>
+    </div>
+    <div class="why"><b>Därför:</b> En läsare som researchar "byta elcentral pris" fick ingen väg till offert — och ombads i stället göra Ampy en tjänst. Funnel-inversionen rättas utan att röra läsupplevelsen.</div>
+  </div>
+
+  <!-- ÖVRIGA -->
+  <div class="grid2">
+    <div class="card">
+      <h3>Om oss + Kontakt <span class="pill P0">P0</span></h3>
+      <p style="font-size:14.5px">Clarity-besökaren gick hit för att verifiera — och fann: inga ansikten, inga omdömen, inga certifikat, tomma sifferkort, och en motsägelse ("över tusen" vs "3 000+/år"). <b>Om oss efter:</b> Hero-1 → TeamSection (länkade kort) → Metrics med riktiga siffror → Testimonials → ContentBlock → Certificates + org.nr/ESV-länk → MainContact. <b>Kontakt efter:</b> H1 + telefon + öppettider [GAP] → MainContact (mobil: formulär först) → "Vad händer sen?" → mini-FAQ → företagsfakta. Detta är destinationen för ~900 CTA:er — den fixas <em>före</em> retargeting.</p>
+    </div>
+    <div class="card">
+      <h3>Thank-you <span class="pill P0">P0</span></h3>
+      <p style="font-size:14.5px">Idag: indexerbar sida som avfyrar konverteringspixeln på pageview + "inom kort" (nedgradering av formulärets 24h-löfte). <b>Efter:</b> noindex + submit-event-konvertering · "Vi ringer inom 24 timmar (vardagar)" · "Samtalet kommer från 010-265 79 79 — spara numret" (tel:/vCard) · "Så förbereder du dig"-checklista per form_type · 2–3 teamansikten · ROT/GT-läsning medan du väntar. Svarsfrekvensen på uppringningen är en direkt spak i 50–75 %-close-ekonomin.</p>
+    </div>
+    <div class="card">
+      <h3>Hubbar + pelare <span class="pill P1">P1</span></h3>
+      <p style="font-size:14.5px">/elservice/-gridden lagas (0.7) och grupperas; hubbarna får riktig H1 (idag H3 — 12 sidor utan H1 fixas i en template-edit), filterchips + kalkylator-tile på produkthubbar. Pelarna: kompakt capture i heron, kanoniska siffror, signaturgrepp (laddbox: kalkylator-embed; elektriker/elinstallation: pristabell), proof-band, /eljour/-pelaren får telefon-först-arkitekturen.</p>
+    </div>
+    <div class="card">
+      <h3>Team + magneter <span class="pill P1">P1</span></h3>
+      <p style="font-size:14.5px">Profilsidorna: stäng CTA-återvändsgränden först (Ring-kort + 24h-löfte), sedan länkas TeamSection-korten (85 sidor) + Person-schema. Magneterna får wrap-standarden: AlternativHero → verktyget (orört) → VarProcess → FAQ → MainContact — exakt ägarens Energikalkylator-exempel, generaliserat. Ordning: energi → laddbox → elcentral. /elkollen/ får verdikt-brygga till förifyllt tjänsteformulär.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ BLOCK ============ -->
+<section id="block" style="background:var(--white)"><div class="wrap">
+  <span class="eyebrow">Block-audit</span>
+  <h2>Prioriterad blocklista</h2>
+  <p class="lead">Score = sidor × funnel-position-vikt × förväntad effekt (aritmetik i respektive fil, <code>research/blocks/</code>).</p>
+  <div class="tscroll" style="margin-top:18px"><table>
+    <tr><th>Prio</th><th>Block</th><th>Score</th><th>Sidor</th><th>Kärnproblem → åtgärd</th></tr>
+    <tr><td><span class="pill P0">P0</span></td><td><b>Header / Footer / Thank-you</b></td><td>2925</td><td>326</td><td>Ingen telefon i headern på någon brytpunkt; pixel på pageview; TY utan förväntanssättning → tel-knapp, event-gated pixel, efter-submit-paket</td></tr>
+    <tr><td><span class="pill P0">P0</span></td><td><b>Hero_2 + aof-formulär</b></td><td>2340</td><td>260</td><td>Trippel-ask, JS-only-form, dubbla H1, adress-före-värde → SSR-skal, ankar-CTA, mobilordning form-först, fältbantning; instrumentera FÖRST</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>MainContact</b></td><td>1770</td><td>295</td><td>Oankrade claims ("3 000+", "5 av 5"), 5 obligatoriska fält, inverterad mobilstack (24h-löftet under submit) → banta till namn+tel+postnr, re-stacka</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>Certificates</b></td><td>1740</td><td>290</td><td>ESV-registerslagningen — det exakta myndighetsrådet till konsumenter — osynlig på slot 18 → klonas till TrustStrip i beslutszonen; alt-texter; Rexel-länk lagas</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>FAQ</b></td><td>1236</td><td>309</td><td>Efter formuläret på 131 sidor; 4 frågor; tom ARIA; saknar ansvar/garanti + efterkontakt → standardiseras före MainContact, 6–7 frågor, schema behålls</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>Testimonials</b></td><td>1164</td><td>291</td><td>Slumpning krossar message match (1 av 12 omdömen om belysning på belysningssidan); badge oankrad trots reviewCount 25 i JSON-LD → vertikal-pinning + ankring</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>ContentBlock</b></td><td>1164</td><td>291</td><td>Textvägg utan punkter, generiska bilder, keyword-fyllnad → lead-mening + 3 feta punkter, riktiga jobbfoton, svara på prislogik/process/ansvar</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>Incitament (ROT/GT/Hemförs.)</b></td><td>1108</td><td>277</td><td>P0-del: fel CTA på eljour-tvillingen (57 sidor). Inget kr-exempel, 50k-taket nämns aldrig, ligger efter formuläret → räkneexempel + flytt före ask</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>MainCTA</b></td><td>1072</td><td>268</td><td>Gradientrubrik under WCAG-kontrast; "60 sekunder" overifierat → mörkare stops, ankrat betyg, löftesrekonciliering; blir stommen i PhoneBand</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>MikroCTA + BlueCTA</b></td><td>920</td><td>230</td><td>13 body-asks/sida, tre band säljer samma sak → MikroCTA pensioneras, Blue+Main → ETT PhoneBand efter Testimonials</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td><b>VarProcess</b></td><td>848</td><td>212</td><td>"Vi går vi igenom"-fel; inget pristransparens-steg; jourvariant med "Installation utförd" → steg 2 = kostnadsfri skriftlig offert; jour-fork</td></tr>
+    <tr><td><span class="pill P0">P0</span></td><td><b>Metrics-familjen</b></td><td>684</td><td>115</td><td>"1000+ Nöjda kunder" = explicit bannad claim live på 114 sidor + tomma sifferkort på om-oss → ägarens sifferkanon, sedan omskrivning</td></tr>
+    <tr><td><span class="pill P2">P2</span></td><td>VissteDuAtt</td><td>580</td><td>290</td><td>CTA-lös återvändsgränd + svängande glödlampa utan reduced-motion → shippa den byggda redesignen + en tel-textlänk</td></tr>
+    <tr><td><span class="pill P2">P2</span></td><td>FooterSEO</td><td>580</td><td>290</td><td>Typo + off-page-CTA + generisk headline → CTA-rad byts, unika texten BEHÅLLS (SEO-vaktens veto), viks in i prefootern</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td>Produkt-ekosystemet</td><td>580</td><td>293</td><td>Dubbelrenderade spec-accordions, popup-form, "SUPERKAMPANJ"-taggar [GAP] → inline-form, sanerade taggar</td></tr>
+    <tr><td><span class="pill P2">P2</span></td><td>MapBlock</td><td>530</td><td>265</td><td>20-av-56-lotteriet churnar länkgrafen varje cache-regen + manufacture-doubt-kortet → deterministisk närhetslista + "Alla områden"-hub</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td>TeamSection + profiler</td><td>364</td><td>91</td><td>Aldrig länkade, autoplay-karusell, efter formuläret → statiska länkade kort före ask; profilerna får CTA-close först</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td>Artikel-block + News</td><td>99</td><td>15</td><td>0 konverteringsväg + recensionsbön till prospekt + identiska datum ("juni 14, 2026" på allt) → Nästa steg-kort, riktiga datum</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td>AlternativHero</td><td>72</td><td>12</td><td>H3 i stället för H1 (12 sidor utan H1), hidden-on-load, ingen CTA → h1-swap (noll visuell diff) + CTA/trust-slots</td></tr>
+    <tr><td><span class="pill P1">P1</span></td><td>Hero-1 + MiniMenu</td><td>36</td><td>6</td><td>Två P0-delar: CTA-stavfelet + staging-404-preload; gradient-H1 under kontrastkrav → fixas i sprint 0/månad 1</td></tr>
+  </table></div>
+</div></section>
+
+<!-- ============ NYA BLOCK ============ -->
+<section id="nya"><div class="wrap">
+  <span class="eyebrow">Vad som saknas</span>
+  <h2>11 nya block att bygga</h2>
+  <p class="lead">Fullständiga specar med anatomi, placering, candour-check och effort i <code>research/missing/</code>. Tre överlappande förslag slogs ihop till ett (TrustStrip); svaga kandidater dödades med motivering.</p>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><h3>1. Pris &amp; offert-blocket <span class="pill P0">P0</span></h3><p style="font-size:14px">Score 2223 — <b>message-match-fixen.</b> Prisspann efter ROT + fast-offert-löfte, direkt under heron. 90 % copy-flytt från befintliga FAQ-svar. 134–247 sidor.</p></div>
+    <div class="card"><h3>2. TrustStrip <span class="pill P0">P0</span></h3><p style="font-size:14px">En rad: "Registrerat elinstallationsföretag — kontrollera oss själva i registret" (ESV-länken ?foretag=12047521) + ankrat betyg + EN volymsiffra. Fyra format (standard/org/jour/produkt). Gated på ägarens sifferkanon.</p></div>
+    <div class="card"><h3>3. Sticky call-bar <span class="pill P0">P0</span></h3><p style="font-size:14px">Alltid-på för eljour (57 sidor — v3-specen finns redan, sticky-CSS:en shippades aldrig). Dismissbart test ≥40 % scroll på artiklar. Bannad på magneter/kontakt/thank-you. Max ETT fast bottenelement per sida.</p></div>
+    <div class="card"><h3>4. Inline mini-form (SSR)</h3><p style="font-size:14px">3 fält (namn/telefon/postnr), server-renderad, förifylld per sida — ersätter produkt-popupen och blir hero-formulärets kärna. Full instrumentering inbyggd.</p></div>
+    <div class="card"><h3>5. Efter-submit-paketet</h3><p style="font-size:14px">/thank-you: kalibrerat 24h-löfte, "spara numret", förberedelse-checklista per form_type, teamansikten. 1 sida — 100 % av alla formulärleads. Attackerar svarsfrekvensen bakom close-ekonomin.</p></div>
+    <div class="card"><h3>6. Two-lane contact (eljour)</h3><p style="font-size:14px">"Akut? Ring nu" / "Kan vänta? Namn + telefon — vi ringer inom 24 h". Två sanna löften i stället för ett falskt genomsnitt.</p></div>
+    <div class="card"><h3>7. ServiceRouter (homepage)</h3><p style="font-size:14px">MiniMenu + ServiceGrid sammanslagna: tjänster rad 1, slim laddbox/batteri rad 2. Ersätter batteri-först-ProductGrid.</p></div>
+    <div class="card"><h3>8. "Nästa steg"-artikelkort</h3><p style="font-size:14px">Ersätter recensionsbönen: Kostnadsfri rådgivning (ankare) + Ring + relevant kalkylator. Kategori-kontextuell.</p></div>
+    <div class="card"><h3>9. Vad ingår i priset? (produkt)</h3><p style="font-size:14px">Popup-30855-innehållet (vad-ingår/undantag/säkringstabell) upp på sidan — ärlighetsinnehållet är säljargumentet.</p></div>
+    <div class="card"><h3>10. B2B-referenser</h3><p style="font-size:14px">Re-headad testimonials-variant utan "grannar" + [GAP: riktiga B2B-omdömen/case]. OrgTrustStrip-syskonet för 13 sidor.</p></div>
+    <div class="card"><h3>11. "Alla områden"-hub + deterministisk ort-rad</h3><p style="font-size:14px">Ersätter 20-av-56-lotteriet: närhetssorterad lista + indexerbar hubbsida per CPT → hub-and-spoke i stället för doorway-gitter.</p></div>
+    <div class="card" style="border-style:dashed"><h3>Dödade förslag</h3><p style="font-size:14px">Relaterade tjänster-grid (finns redan — länkarna är bara trasiga) · fristående jour-status-indikator (viks in i call-baren) · homepage job-picker (uppskjutet test mot ägarlåst hero) · kalkylator-embeds som "nya block" (om-placeringar).</p></div>
+  </div>
+</div></section>
+
+<!-- ============ MAGNETER ============ -->
+<section id="magneter" style="background:var(--white)"><div class="wrap">
+  <span class="eyebrow">Lead magnets</span>
+  <h2>Magnetportföljen: rör, wrap, distribution</h2>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3>Befintliga 7 — fixa före bygga <span class="pill P0">P0</span></h3>
+      <ul class="tight">
+        <li><b>0 verifierade lead-rör:</b> stub-webhooks, dött felnummer, 0 form_start — vecka 1 = provskicka allt</li>
+        <li><b>Wrap-standard</b> (ägarens Energikalkylator-exempel generaliserat): AlternativHero → verktyget (orört — approved rendering) → VarProcess ("skicka kalkylen → vi ringer inom 24 h") → FAQ → MainContact</li>
+        <li>Ordning: energi → laddbox → elcentral · /elkollen/ får verdikt-brygga till förifyllt tjänsteformulär · /ampy-eljour/ förblir call-only</li>
+        <li><b>Verktygs-tiles</b> (EN komponent) för korslänkning från hubbar/produkter/artiklar — medvetet INTE på geo-sidor (återöppnar inte funnel-hijacken)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>En ny magnet godkänd: Foto-bedömningen <span class="pill P1">P1</span></h3>
+      <p style="font-size:14.5px"><b>"Skicka ett par bilder — kostnadsfri bedömning inom två arbetsdagar."</b> Begravd guldmening ur byta-elcentral-artikeln, paketerad som 3-fälts mikroformulär + foton. Enda magneten i service-lanen (kommersiell prioritet #1); tjänar exakt de betalsökningar som idag konverterar till noll. Gated på ägarens SLA-bekräftelse [GAP]. Placering: artiklarnas inline-CTA + tjänstesidornas prisblock.</p>
+      <p style="font-size:13.5px;color:var(--ink-soft)"><b>Dödade med motivering:</b> elpriskoll/effekttariff (batteri-lane, commodity, feed-underhåll) · e-post-gated PDF:er som standardformat (trust-inversion) — offert-checklistan byggs i stället <em>ogated</em> som costly-signal-trustblock · BRF-laddguiden → fas 2 med candour-gate.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ TRUST ============ -->
+<section id="trust"><div class="wrap">
+  <span class="eyebrow">Candour-kanon</span>
+  <h2>Trust-systemet: en sanning, överallt</h2>
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3>Claims-domar (urval)</h3>
+      <div class="tscroll"><table style="box-shadow:none">
+        <tr><th>Claim</th><th>Dom</th></tr>
+        <tr><td>"1000+ Nöjda kunder"</td><td><span class="pill P0">KILL</span> bannad, motsäger 3000+</td></tr>
+        <tr><td>"5.0" utan antal (4–6×/sida)</td><td>→ <b>"5,0 av 5 · 25 omdömen på Google"</b> (länkad, max 2×/sida) <span class="pill gap">[GAP: antal]</span></td></tr>
+        <tr><td>"3 000+ installationer om året"</td><td><span class="pill gap">[GAP]</span> ägarbekräfta + välj EN volymsiffra</td></tr>
+        <tr><td>"Prata med … inom 60 sekunder"</td><td><span class="pill gap">[GAP]</span> verifiera eller ersätt</td></tr>
+        <tr><td>"inom kort" / "snarast"</td><td><span class="pill P0">KILL</span> → "inom 24 timmar (vardagar)" överallt</td></tr>
+        <tr><td>"Ordinarie pris"-strike (2× netto)</td><td><span class="pill P0">REWRITE</span> → "Pris före Grön Teknik-avdrag"</td></tr>
+        <tr><td>"Alltid fasta priser" (+ 650–950 kr/h på samma sida)</td><td><span class="pill P0">REWRITE</span> → "fast pris i offerten"-formeln <span class="pill gap">[GAP]</span></td></tr>
+        <tr><td>"SUPERKAMPANJ" / "BÄSTSÄLJARE"</td><td><span class="pill gap">[GAP]</span> belägg eller ta bort</td></tr>
+        <tr><td>Elsäkerhetsverket-registrering</td><td><b>HJÄLTEN</b> — upp i TrustStrip + formulärpaneler</td></tr>
+      </table></div>
+      <p class="note" style="margin-top:8px">Fullständig tabell (alla claims + var de förekommer): <code>research/synthesis/trust-architecture.md</code>. JSON-LD:n bär redan 5.0/25 — att visa antalet för människor är candour-plikt, inte risk.</p>
+    </div>
+    <div class="card">
+      <h3>SLA-hierarkin (en sanning per kanal)</h3>
+      <ul class="tight">
+        <li><b>Telefon:</b> "direkt till en elektriker" (60-sek endast om ägarbekräftad)</li>
+        <li><b>Eljour:</b> "målsättning inom 1 h" + prissatt inställelseavgift <span class="pill gap">[GAP]</span></li>
+        <li><b>Alla formulär:</b> "Vi ringer dig inom 24 timmar (vardagar)" — ordagrant upprepad på thank-you + "samtalet kommer från 010-265 79 79, spara numret"</li>
+      </ul>
+      <h3 style="margin-top:18px">Trust-meshen (ordningen är tvingande)</h3>
+      <ul class="tight">
+        <li>1. Stäng profilsidornas CTA-återvändsgränd (0 tel/form idag)</li>
+        <li>2. Länka TeamSection-korten (85 sidor) + efternamn + cert-chips</li>
+        <li>3. Bygg om /om-oss/ till riktiga trust-hubben</li>
+        <li>4. Teamansikten på thank-you</li>
+      </ul>
+      <p class="note" style="margin-top:8px">Proof-stegen per position (hero-rad → authority-strip → testimonials → pre-form → beslutszon) specad i trust-architecture.md.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ MÄTNING ============ -->
+<section id="matning" style="background:var(--white)"><div class="wrap">
+  <span class="eyebrow">Mätning &amp; test-ärlighet</span>
+  <h2>Så vet vi att det fungerar</h2>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card">
+      <h3>KPI-trädet</h3>
+      <ul class="tight">
+        <li><b>Primär:</b> kvalificerade leads/vecka (samtal &gt;90 s + CRM-relevanta, formulär som når CRM)</li>
+        <li><b>Vakter:</b> CRM-disposition, telefon/formulär-mix, bounce, LCP-fältdata</li>
+        <li><b>Ekonomi:</b> CPL-tak 1 300–2 000 kr</li>
+        <li><b>Diagnostik:</b> session → engagerad → form_view → form_start → submit → CRM — skiljer äntligen "ingen nådde formuläret" från "alla föll på Adress"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Power-ärlighet</h3>
+      <p style="font-size:14.5px">Vid ~450–900 sessioner/månad tar ett sitewide bottom-line-A/B <b>5–10 månader</b> (n≈2 350/arm för 1→2 %). Därför tre nivåer: <b>Tier 0</b> fixa-utan-test (trasigt/candour — hela Sprint 0), <b>Tier 1</b> ship-and-monitor (best practice + diagnostik), <b>Tier 2</b> riktiga tester när betalvolymen skalar.</p>
+    </div>
+    <div class="card">
+      <h3>Tier 2-kön (förregistrerade tester)</h3>
+      <ul class="tight">
+        <li>Hero-ask: formulär-först vs ring-först (evidensen genuint tvetydig)</li>
+        <li>Sticky-bar på icke-eljour-mallar (reell irritationsrisk)</li>
+        <li>Minimala fältsetet — med CRM-kontaktbarhet som vakt</li>
+        <li>Eljour ring-dominant hero när kampanjen lanseras</li>
+        <li>laddbox-i ProductGrid-dragningen</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px"><b>Veckoritualen (45 min):</b> leads-scorecard mot CPL-taket · funnel-diagnostik med noll-event-tripwire (fångar opacity-buggen om den återkommer) · 100 % genomgång av betalda Clarity-inspelningar med kodningstaxonomi (låg trafik gör full genomgång möjlig — en styrka, inte svaghet) · ändringsannoteringar · testbeslut endast mot förregistrerade kriterier.</div>
+</div></section>
+
+<!-- ============ ROADMAP ============ -->
+<section id="roadmap"><div class="wrap">
+  <span class="eyebrow">3–6 månader</span>
+  <h2>Roadmap</h2>
+  <div class="card" style="margin-top:16px">
+    <div class="phase"><div class="when">Vecka 1–2<small>Sprint 0</small></div><div>Hela saneringslistan: instrumentering, pixel-integritet, enterView-fix, stavfel, döda nummer, platshållare, /elservice/-grid, staging-404, <b>telefon i headern</b>, prisstrike-omskrivning, eljour-felen, <b>ägarens sifferkanon-session (17 GAP)</b>, lead-rör-test.</div></div>
+    <div class="phase"><div class="when">Månad 1<small>Fundamentet</small></div><div>Hero_2 v2 (SSR-form + H1 + ankar-CTA) på 260 sidor · Prisblock + TrustStrip på service/geo · FAQ-flytt + utökning (6–7 frågor) · MainContact-bantning + mobil-restack · /kontakt/-ombyggnad · CTA-retarget ~600 länkar (efter SSR-fixen — ankra aldrig till ett osynligt formulär) · magnetwrap energi/laddbox/elcentral.</div></div>
+    <div class="phase"><div class="when">Månad 2<small>Intent-arkitekturer</small></div><div>Eljour-arkitekturen (sticky bar, two-lane, jourvariant, hemförsäkringsfix) · Homepage ServiceRouter + Certificates · Produkt: inline-form + "Vad ingår" + ärlig prisrad · Artikel-close + tel-länkar · Team-mesh + om-oss-ombyggnad · Foto-bedömningen lanseras.</div></div>
+    <div class="phase"><div class="when">Månad 3<small>Systemet sluts</small></div><div>B2B org-skin (13 sidor) · "Alla områden"-hub + deterministisk MapBlock · SEO-svans-merge + Terminal · resterande magneter + verktygs-tiles · PhoneBand-konsolidering (MikroCTA/BlueCTA bort).</div></div>
+    <div class="phase"><div class="when">Månad 4–6<small>Lär &amp; skala</small></div><div>Tier 2-testprogrammet i takt med betalskala (förregistrerade, fixed-horizon) · BRF-laddguiden (candour-gated) · iteration på Clarity/CRM-data · kvartalsvis claims-revision mot kanon.</div></div>
+  </div>
+  <div class="chain" style="margin-top:18px"><b>Beroendekedjan som inte får brytas:</b> instrumentering → enterView-fix → SSR-formulär → <em>därefter</em> CTA-ankring → <em>därefter</em> omsekvensering → <em>därefter</em> tester. Att ankra 600 CTA:er till ett formulär som ligger på opacity 0 vore att göra läckan värre med bättre avsikter.</div>
+</div></section>
+
+<footer class="foot"><div class="wrap">
+  <p><b style="color:#fff">Ampy CRO-masterstrategi</b> · 2026-08-02 · Producerad av Claude (Fable 5) med 41-agenters analysprogram.</p>
+  <p style="margin-top:6px">Underlag i repot: <code>context/</code> (affärskontext, blockinventarie, metoddoktrin) · <code>data/</code> (block-map 326 URL:er, GSC, live-observationer) · <code>research/templates/</code> (14) · <code>research/blocks/</code> (20) · <code>research/synthesis/</code> (5 tvärlinser) · <code>research/missing/</code> (block + magneter) · <code>strategy/master-strategy.md</code>.</p>
+  <p style="margin-top:6px">Candour-notis: alla siffror i denna rapport är verifierade mot live-sajt, crawldata eller GSC; punkter som kräver ägarbekräftelse är märkta [GAP]; obevisade förbättringsantaganden är klassade som testhypoteser i mätplanen.</p>
+</div></footer>
+
+</body>
+</html>
