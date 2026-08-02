@@ -40,6 +40,9 @@ The 480px query raises vertical padding to `--apspace-4xl` top+bottom while cont
 ### AH-05 — One undifferentiated shell for four different jobs + off-token surface · Severity: P2
 The same anonymous navy card fronts a product hub, a calculator, an electrician's E-E-A-T profile, and a news archive. Nothing signals "16 laddboxar below", "2-minute tool, no personal data", or "auktoriserad elektriker" — the differentiation cost of a shared block with no variant slots. Also: card bg `#1b1d4a` is off-token (canon midnight = #090b32; teal #00a991 absent), heading weight 400 is light for a page title, and the white→green gradient text is the known gradient-taste risk vs. the 35–65 audience. NOTE: any pixel change is owner-gated (approved-rendering-is-canon rule).
 
+### AH-08 — Breadcrumb label defects in the block's only navigational element · Severity: P3
+Verified in markup: on /elservice/ the hero breadcrumb renders **"Hem / Services"** — an English CPT-archive label leaking into an otherwise all-Swedish customer journey (the 35–65 homeowner reads "Services" where every menu item says "Tjänster"). On /batterikalkylator/ the trail reads **"Hem / Ampy batterikalkylator"** — brand-prefixed and redundant on Ampy's own site. Small trust/polish frictions sitting at `top: 2rem; left: 2rem` of the first screen on those pages. Desktop+mobile identical (same absolute element).
+
 ### AH-06 — No trust element where sibling heroes carry one · Severity: P2
 Hero-1/Hero_2 establish the pattern "hero = headline + CTA + Google-rating row". AlternativHero pages get their first trust proof only at MainCTA/MainContact ("5.0 på Google", "3 000+ genomförda installationer om året") far below. The Clarity trust-seeking visitor (Contact → About Us) suggests proof belongs early (Cialdini authority/social proof). Candour gate: any added rating row must be anchored (score + count + "Betyg på Google" + GBP link) — same requirement as the sitewide unanchored-"5.0" issue.
 
@@ -54,6 +57,7 @@ Hero-1/Hero_2 establish the pattern "hero = headline + CTA + Google-rating row".
    b. **Trust/meta slot** — anchored Google row (score + count + GBP link, candour-gated) on hubs; a differentiator line per role: "16 laddboxar att jämföra" (hub), "Tar ~2 minuter · inga personuppgifter krävs" (calculator), certification line (team). Fixes AH-03/AH-05/AH-06 without forking the block.
 4. **Mobile viewport budget:** drop @480px padding from 4xl → xl and cap total hero height so H1 + paragraph + the first row of real content (product card / calculator input) are visible within ~700px. Fixes AH-04. HYPOTES: showing the first product/calc row in viewport 1 raises scroll-past-hero engagement; measure via Clarity scroll-depth on /laddboxar/.
 5. **Token alignment (owner-gated visual diff):** #1b1d4a → #090b32, consider heading weight 400→500. Present as a before/after screenshot for sign-off, per approved-rendering-is-canon.
+6. **Breadcrumb label sweep (zero-risk copy fix):** rename the elservice CPT-archive breadcrumb "Services" → "Tjänster" and drop the "Ampy " prefix from tool breadcrumbs ("Batterikalkylator"). Fixes AH-08.
 
 ## Test hypotheses (A/B-phrased)
 - HYPOTES: On /elservice/ + /laddboxar/, adding the CTA + anchored-rating slots to AlternativHero (variant B) vs. current (A) increases phone-click + form-start rate per session. Primary metric: tel: clicks + form_start.
