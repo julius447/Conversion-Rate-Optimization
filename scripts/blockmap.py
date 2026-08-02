@@ -83,9 +83,15 @@ def analyze(category, url):
         html = fetch(url)
     except Exception as e:
         return {"category": category, "url": url, "error": str(e)}
+    # restrict search to <body> markup with <style>/<script> contents removed,
+    # otherwise head-CSS class definitions pollute the ordering
+    body_start = html.find("<body")
+    body = html[body_start:] if body_start >= 0 else html
+    markup = re.sub(r"<style[^>]*>.*?</style>", "<style/>", body, flags=re.S)
+    markup = re.sub(r"<script[^>]*>.*?</script>", "<script/>", markup, flags=re.S)
     hits = []
     for fp, name in FINGERPRINTS:
-        idx = html.find(fp)
+        idx = markup.find(fp)
         if idx >= 0:
             hits.append((idx, name))
     hits.sort()
