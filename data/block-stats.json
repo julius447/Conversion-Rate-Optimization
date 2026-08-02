@@ -1,0 +1,419 @@
+{
+ "Header": {
+  "pages": 325,
+  "median_pos": 1,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "lead-magnet": 7,
+   "page": 16,
+   "post": 11,
+   "service": 22,
+   "team-member": 6
+  }
+ },
+ "ProductHero": {
+  "pages": 26,
+  "median_pos": 2,
+  "cats": {
+   "battery-product": 10,
+   "ev-product": 16
+  }
+ },
+ "Calculator-UI": {
+  "pages": 15,
+  "median_pos": 3,
+  "cats": {
+   "battery-product": 10,
+   "lead-magnet": 3,
+   "page": 2
+  }
+ },
+ "Testimonials": {
+  "pages": 291,
+  "median_pos": 5,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 6,
+   "service": 22
+  }
+ },
+ "GronTeknik": {
+  "pages": 84,
+  "median_pos": 16,
+  "cats": {
+   "battery-product": 10,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 2
+  }
+ },
+ "ContentBlock": {
+  "pages": 291,
+  "median_pos": 7,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 6,
+   "service": 22
+  }
+ },
+ "FAQ": {
+  "pages": 301,
+  "median_pos": 10,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "lead-magnet": 2,
+   "page": 8,
+   "service": 22,
+   "team-member": 6
+  }
+ },
+ "FAQ-accordion": {
+  "pages": 309,
+  "median_pos": 11,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "lead-magnet": 2,
+   "page": 8,
+   "post": 8,
+   "service": 22,
+   "team-member": 6
+  }
+ },
+ "MainContact": {
+  "pages": 295,
+  "median_pos": 8,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 10,
+   "service": 22
+  }
+ },
+ "MainContact-card": {
+  "pages": 295,
+  "median_pos": 9,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 10,
+   "service": 22
+  }
+ },
+ "ProductGrid": {
+  "pages": 87,
+  "median_pos": 4,
+  "cats": {
+   "battery-product": 10,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 5
+  }
+ },
+ "TeamSection": {
+  "pages": 85,
+  "median_pos": 14,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-i": 56,
+   "ev-product": 16,
+   "page": 3
+  }
+ },
+ "VissteDuAtt": {
+  "pages": 290,
+  "median_pos": 14,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 5,
+   "service": 22
+  }
+ },
+ "CEBlock": {
+  "pages": 290,
+  "median_pos": 17,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 5,
+   "service": 22
+  }
+ },
+ "Certificates": {
+  "pages": 290,
+  "median_pos": 18,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 5,
+   "service": 22
+  }
+ },
+ "FooterSEO": {
+  "pages": 290,
+  "median_pos": 19,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "page": 5,
+   "service": 22
+  }
+ },
+ "Prefooter": {
+  "pages": 325,
+  "median_pos": 20,
+  "cats": {
+   "battery-product": 10,
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "ev-product": 16,
+   "laddbox-i": 56,
+   "lead-magnet": 7,
+   "page": 16,
+   "post": 11,
+   "service": 22,
+   "team-member": 6
+  }
+ },
+ "Hero_2": {
+  "pages": 260,
+  "median_pos": 2,
+  "cats": {
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 1,
+   "service": 22
+  }
+ },
+ "Hero_2-aof-form": {
+  "pages": 260,
+  "median_pos": 3,
+  "cats": {
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 1,
+   "service": 22
+  }
+ },
+ "MainCTA": {
+  "pages": 268,
+  "median_pos": 5,
+  "cats": {
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 9,
+   "service": 22
+  }
+ },
+ "VarProcess": {
+  "pages": 212,
+  "median_pos": 7,
+  "cats": {
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "page": 9,
+   "service": 22
+  }
+ },
+ "MapBlock": {
+  "pages": 265,
+  "median_pos": 15,
+  "cats": {
+   "elektriker-for-x": 13,
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 6,
+   "service": 22
+  }
+ },
+ "Metrics": {
+  "pages": 115,
+  "median_pos": 4,
+  "cats": {
+   "elektriker-i": 56,
+   "eljour-i": 56,
+   "page": 3
+  }
+ },
+ "ROT-block": {
+  "pages": 193,
+  "median_pos": 12,
+  "cats": {
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "page": 3,
+   "service": 22
+  }
+ },
+ "MikroCTA": {
+  "pages": 173,
+  "median_pos": 13,
+  "cats": {
+   "elektriker-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 5
+  }
+ },
+ "BlueCTA": {
+  "pages": 230,
+  "median_pos": 13,
+  "cats": {
+   "elektriker-i": 56,
+   "elinstallation-i": 56,
+   "eljour-i": 56,
+   "laddbox-i": 56,
+   "page": 6
+  }
+ },
+ "AlternativHero": {
+  "pages": 13,
+  "median_pos": 2,
+  "cats": {
+   "lead-magnet": 2,
+   "page": 4,
+   "post": 1,
+   "team-member": 6
+  }
+ },
+ "MiniMenu-Elfirma": {
+  "pages": 1,
+  "median_pos": 2,
+  "cats": {
+   "page": 1
+  }
+ },
+ "ArticleBody": {
+  "pages": 14,
+  "median_pos": 3,
+  "cats": {
+   "page": 4,
+   "post": 10
+  }
+ },
+ "Hero-1": {
+  "pages": 5,
+  "median_pos": 2,
+  "cats": {
+   "page": 5
+  }
+ },
+ "AboutMetrics": {
+  "pages": 1,
+  "median_pos": 4,
+  "cats": {
+   "page": 1
+  }
+ },
+ "VisualCTA": {
+  "pages": 1,
+  "median_pos": 6,
+  "cats": {
+   "page": 1
+  }
+ },
+ "ThankYou": {
+  "pages": 1,
+  "median_pos": 1,
+  "cats": {
+   "page": 1
+  }
+ },
+ "EditorialByline": {
+  "pages": 8,
+  "median_pos": 2,
+  "cats": {
+   "post": 8
+  }
+ },
+ "ArticleTOC": {
+  "pages": 8,
+  "median_pos": 5,
+  "cats": {
+   "post": 8
+  }
+ },
+ "ArticleCards": {
+  "pages": 8,
+  "median_pos": 6,
+  "cats": {
+   "post": 8
+  }
+ }
+}
