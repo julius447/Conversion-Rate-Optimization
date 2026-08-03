@@ -112,3 +112,29 @@ Sajtens problem är inte att den saknar innehåll, design eller CTA:er. Den har 
 | **Månad 4–6** | Tier 2-testprogram i takt med betalskala (förregistrerade, fixed-horizon) · BRF-laddguide (candour-gated) · iterera på Clarity/CRM-data · kvartalsvis claims-revision |
 
 **Beroendekedjan som inte får brytas:** instrumentering → enterView-fix → SSR-form → *därefter* CTA-ankring (att ankra till ett osynligt formulär är värre än att navigera) → *därefter* omsekvensering → *därefter* tester.
+
+---
+
+## 8. Runda 2 — Designlagret (2026-08-03)
+
+Runda 1 gav STRUKTUR (blockordning per mall) — ägaren gav den 5/10 för att design-nivån saknades. Runda 2 rättade det: 22 skärmdumps-grundade analyser (14 visuella block-auditer + 7 byggbara specar + 1 doktrin, 616 skärmdump-segment mobil+desktop), `research/design/`. Takytan: `research/design/00-design-doctrine.md`.
+
+**Fokusekonomin (kärnlagen).** ETT dominant element per block, matchat mot blockets konverteringsjobb — det som är störst/ljusast/mest kontrastrikt ska vara det element som gör jobbet, inget annat får tävla. Samma defekt återkom överallt som "fel element vinner ögat": MainCTA:s teamfoto (~55 %) + 5,0-guldrad inramar ring-knappen mellan två fokustjuvar; metric-kortets svarta ikoncirkel slår siffran; produktsidans tomma vita bildkort är sidans största element men bär minst info. Ägarens 5,0-frö generaliserat: en oankrad glimmande betygsrad direkt under en knapp blir sista blickvilan → struken under VARJE CTA (hero, MainCTA, produkt-expertkort, eljour, artikel-slutkort).
+
+**Färg-kanonen.** (1) Teal = accent för den primära handlingen (+ signatur-glyfer), inte tapet i tre nyanser. (2) EN handlings-gradient per block — mint-submit äger handlingen; grön /kontakt/ + blå Ring dödas. (3) EN kanonisk Ring-knapp = midnight `#090b32` solid (BlueCTA:s bevisade look, teal-chip vänster), inte dagens cyan-navtvilling. (4) EN stjärnfärg = teal; guld är token-defekt, aldrig teal+guld på samma sida. (5) Mörka band = avsiktliga ankare, inte slumpvisa cyan-avdelare; offwhite `#f5f9ff` palett-reset signalerar "känsla → funktion".
+
+**MainCTA v2 (ersätter round-1:s "PhoneBand").** Ägaren underkände "merga till en tunn telefonrad". Design-domen: MainCTA v2 = ring-flaggskeppet. Tre ingrepp: 5,0-raden bort (→ terminal fixation) · ansiktet 55 %→inset 104px · Ring-knapp cyan→midnight `#090b32` solid. BlueCTA droppas på v2-sidor (ärver ut sin pill), MikroCTA killas. 3 divergenta versioner för pixel-QA: A ansikte-krymper (canonical mobil) / B ren typografisk (LCP-fallback, inget foto) / C split (canonical desktop). Spec: `spec-main-cta-evolution`.
+
+**Hero-systemet (en mall → tre intent-heroes).** Ägarens hypotes validerad av pixlarna (geo-sidor har redan kommersiell copy, service beskrivande): HERO-S (service — tjänste-bild, EN CTA, inget formulär) / HERO-G (geo — 3-fälts SSR-kort) / HERO-E (eljour — call-first). Regel: EN gradient-knapp per hero. Hero-1 (homepage/pelare) rörs inte. Spec: `spec-hero-system`.
+
+**ampy-trustrow (löser ägarinvändningen mot TrustStrip).** Verifieringens VÄRDE (registrerad · försäkrad · fast pris · ROT) = icke-länkade bevis-chips i beslutszonen; verifieringens HANDLING (ESV-registerlänken `?foretag=…`) flyttas till footer + FAQ-rad. Certifikatväggens 6 utlänkar retireras (de exporterade det varma leadet); partner-loggor → tonad footer-rad, Rexel-grossisten lämnar auktoritetsytan. Netto: ingen export av besökaren. Spec: `spec-proof-pattern`, `trust-elements-design`.
+
+**Formulärspråket (ETT `ampy-field`, tre densiteter).** 1px kant + teal focus, server-renderat. mini (3: namn/tel/postnr — HERO-G:s kärna, ersätter produkt-popupen) · full (MainContact: 2 default + "Fler uppgifter"-disclosure) · confirmation (thank-you: 0). Minsta kvalificerande lead = namn+telefon(+postnr geo). MainContact mobil-restack: 3-stegs-lugnet FÖRE formuläret, jätte-citatet (15ch display) demoterat till under submit, 24h-löftet ovanför submit. Spec: `spec-form-system`, `maincontact-design`.
+
+**Eljour-kitet.** Kanonisk mörkgrön nödknapp (`--eljour-emergency-green`, samplad från den pixel-godkända "Ring eljouren" — vit text klarar 4.5:1, teal gör det inte) i hero + MainCTA + alla band, ersätter de fyra olika visuella språken för samma ringknapp. Sticky mobil call-bar (v3-specen fanns, CSS:en shippades aldrig). Two-lane: "Akut? Ring" (dominant) / "Kan vänta? namn+tel" (ghost). Symptomblocket fångades och design-granskades i sin helhet (severity-pills Akut/Varning verifierade i skärmdump) — SKYDDA, sajtens bästa bevisdesign; severity-sortera Akut röd först, ta bort "1000+"-kortet. Spec: `spec-eljour-kit`, `eljour-design`.
+
+**Delade primitiver (definieras EN gång, propageras):** `btn-primary-mint` · `btn-ring-dark`/midnight · `btn-emergency-green` · `link-quiet` · `ampy-field` · `ampy-trustrow`.
+
+**12 designbeslut som kräver ägaren** (utöver de 17 sifferkanon-[GAP]; `00-design-doctrine.md §5`, var och en med rekommendation): recensionsantal `{N}` + aktuellt 5,0 · kanonisk kundsiffra ("1000+" bannat vs "3 000+/år") · MainCTA 60-sek-SLA · 24h-återuppringnings-SLA som skriftligt löfte · reg.nr/org.nr i klartext · EN prissiffra per vertikal · hero-bildriktning per tjänst · kanonisk Ring-knappsfärg · stjärnfärg teal vs guld · testimonials content-hug (Riktning B) · MainContact fält-diet · sticky mobil-barer + partner-loggor i footern.
+
+**Reviderade round-1-domar** (design ändrade beslutet): TrustStrip → ampy-trustrow · PhoneBand → MainCTA v2 · Hero_2-som-en-mall → tre intent-heroes · certifikatväggen stannar → retireras/klonas upp som chips · Metrics "1000+" → number-först stat-trio med belagda tal · thank-you-destination → post-submit workspace · guld-stjärnor → teal. Oförändrat: 5-slot ask-budget, /kontakt/-paradoxen, label-kanon, FAQ ovanför MainContact, incitament över formuläret.
