@@ -1,0 +1,4 @@
+node_modules/
+data/screenshots/*.png
+data/screenshots/tiles/*.png
+package*.json

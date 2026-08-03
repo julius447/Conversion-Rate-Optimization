@@ -1,0 +1,192 @@
+{
+ "artikel-elcentral--desktop": {
+  "tiles": 20,
+  "full_height_px": 25205,
+  "width_px": 2160
+ },
+ "artikel-elcentral--mobile": {
+  "tiles": 34,
+  "full_height_px": 49884,
+  "width_px": 780
+ },
+ "b2b-brf--desktop": {
+  "tiles": 12,
+  "full_height_px": 15611,
+  "width_px": 2160
+ },
+ "b2b-brf--mobile": {
+  "tiles": 20,
+  "full_height_px": 29514,
+  "width_px": 780
+ },
+ "geo-elektriker-tyreso--desktop": {
+  "tiles": 18,
+  "full_height_px": 22242,
+  "width_px": 2160
+ },
+ "geo-elektriker-tyreso--mobile": {
+  "tiles": 28,
+  "full_height_px": 42048,
+  "width_px": 780
+ },
+ "geo-elinstallation-vaxholm--desktop": {
+  "tiles": 15,
+  "full_height_px": 18863,
+  "width_px": 2160
+ },
+ "geo-elinstallation-vaxholm--mobile": {
+  "tiles": 25,
+  "full_height_px": 36134,
+  "width_px": 780
+ },
+ "geo-eljour-taby--desktop": {
+  "tiles": 15,
+  "full_height_px": 19440,
+  "width_px": 2160
+ },
+ "geo-eljour-taby--mobile": {
+  "tiles": 24,
+  "full_height_px": 35728,
+  "width_px": 780
+ },
+ "geo-laddbox-nacka--desktop": {
+  "tiles": 14,
+  "full_height_px": 18242,
+  "width_px": 2160
+ },
+ "geo-laddbox-nacka--mobile": {
+  "tiles": 24,
+  "full_height_px": 35406,
+  "width_px": 780
+ },
+ "home--desktop": {
+  "tiles": 12,
+  "full_height_px": 14850,
+  "width_px": 2160
+ },
+ "home--mobile": {
+  "tiles": 27,
+  "full_height_px": 39682,
+  "width_px": 780
+ },
+ "hub-laddboxar--desktop": {
+  "tiles": 8,
+  "full_height_px": 10332,
+  "width_px": 2160
+ },
+ "hub-laddboxar--mobile": {
+  "tiles": 25,
+  "full_height_px": 37038,
+  "width_px": 780
+ },
+ "kontakt--desktop": {
+  "tiles": 2,
+  "full_height_px": 2636,
+  "width_px": 2160
+ },
+ "kontakt--mobile": {
+  "tiles": 5,
+  "full_height_px": 6822,
+  "width_px": 780
+ },
+ "magnet-energikalkylator--desktop": {
+  "tiles": 3,
+  "full_height_px": 3396,
+  "width_px": 2160
+ },
+ "magnet-energikalkylator--mobile": {
+  "tiles": 7,
+  "full_height_px": 9564,
+  "width_px": 780
+ },
+ "om-oss--desktop": {
+  "tiles": 7,
+  "full_height_px": 8396,
+  "width_px": 2160
+ },
+ "om-oss--mobile": {
+  "tiles": 10,
+  "full_height_px": 14260,
+  "width_px": 780
+ },
+ "pillar-batterilagring--desktop": {
+  "tiles": 18,
+  "full_height_px": 22980,
+  "width_px": 2160
+ },
+ "pillar-batterilagring--mobile": {
+  "tiles": 31,
+  "full_height_px": 45290,
+  "width_px": 780
+ },
+ "pillar-elektriker--desktop": {
+  "tiles": 17,
+  "full_height_px": 22038,
+  "width_px": 2160
+ },
+ "pillar-elektriker--mobile": {
+  "tiles": 28,
+  "full_height_px": 40704,
+  "width_px": 780
+ },
+ "pillar-eljour--desktop": {
+  "tiles": 15,
+  "full_height_px": 19188,
+  "width_px": 2160
+ },
+ "pillar-eljour--mobile": {
+  "tiles": 23,
+  "full_height_px": 34508,
+  "width_px": 780
+ },
+ "prod-sigenstor--desktop": {
+  "tiles": 16,
+  "full_height_px": 19769,
+  "width_px": 2160
+ },
+ "prod-sigenstor--mobile": {
+  "tiles": 26,
+  "full_height_px": 38790,
+  "width_px": 780
+ },
+ "prod-zaptec-go2--desktop": {
+  "tiles": 2,
+  "full_height_px": 2631,
+  "width_px": 2160
+ },
+ "prod-zaptec-go2--mobile": {
+  "tiles": 4,
+  "full_height_px": 5692,
+  "width_px": 780
+ },
+ "svc-elcentral--desktop": {
+  "tiles": 15,
+  "full_height_px": 18483,
+  "width_px": 2160
+ },
+ "svc-elcentral--mobile": {
+  "tiles": 24,
+  "full_height_px": 35916,
+  "width_px": 780
+ },
+ "svc-vitvaror--desktop": {
+  "tiles": 15,
+  "full_height_px": 18426,
+  "width_px": 2160
+ },
+ "svc-vitvaror--mobile": {
+  "tiles": 24,
+  "full_height_px": 36016,
+  "width_px": 780
+ },
+ "thank-you--desktop": {
+  "tiles": 1,
+  "full_height_px": 1350,
+  "width_px": 2160
+ },
+ "thank-you--mobile": {
+  "tiles": 2,
+  "full_height_px": 1688,
+  "width_px": 780
+ }
+}
